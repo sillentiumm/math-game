@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  background-color: rgb(230, 230, 230);
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: start;
+  flex-wrap: wrap;
+  border: 2px solid black;
+}
+.main-settings {
+  width: 500px;
+  height: 60px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  font-size: 36px;
+}
+.main-input {
+  width: 400px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+.main-btn {
+  width: 60px;
+  height: 60px;
+  border: 1px solid black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: space-between;
+  background-color: #FFBA00;
+  transition: 0.2s;
+  transform: translateY(-5px);
+  box-sizing: border-box;
+  box-shadow: 2px 6px 0 grey;
+  cursor: pointer;
+}
+.main-btn:active {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 grey;
+}
+.main-score {
+  position: absolute;
+  right: calc(50% - 720px);
+  top: 100px;
+  width: 300px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+.main-score__title {
+  margin-bottom: 10px;
+}
+.main-score__number {
+  width: 300px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+.main-reset {
+  position: absolute;
+  right: calc(50% - 670px);
+  top: 565px;
+  width: 200px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  border: 2px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  transform: translateY(-5px);
+  box-shadow: 2px 5px 0 grey;
+  cursor: pointer;
+}
+.main-reset:active {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 grey;
+}
+
+@media (max-width: 1460px) {
+  .main-score {
+    top: 860px;
+    right: calc(50% - 150px);
+  }
+  .main-reset {
+    top: 800px;
+    right: calc(50% - 100px);
+  }
+}/*# sourceMappingURL=style.css.map */

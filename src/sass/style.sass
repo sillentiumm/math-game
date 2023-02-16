@@ -1,0 +1,101 @@
+* 
+ margin: 0
+ padding: 0
+ 
+//  box-sizing: border-box
+.main
+ background-color: rgb(230, 230, 230 )
+ width: 800px
+ height: 600px
+ margin: 0 auto
+ margin-top: 50px
+ display: flex
+ justify-content: flex-end
+ align-items: start
+ flex-wrap: wrap
+ border: 2px solid black
+ &-settings 
+  width: 500px
+  height: 60px
+  margin: 0 auto
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-top: 30px
+  font-size: 36px
+ &-input 
+  width: 400px
+  height: 60px
+  display: flex
+  justify-content: center
+  align-items: center
+  border: 2px solid black
+  border-radius: 10px
+ &-btn     
+  width: 60px
+  height: 60px
+  border: 1px solid black
+  border-radius: 50%
+  display: flex
+  justify-content: space-between
+  align-items: space-between
+  background-color: #FFBA00
+  transition: .2s
+  transform: translateY(-5px) 
+  box-sizing: border-box
+  box-shadow: 2px 6px 0 grey
+  cursor: pointer  
+  &:active
+   transform: translateY(-2px)  
+   box-shadow: 0 0 0 grey
+ &-score 
+  position: absolute
+  right: calc( 50% - 720px )
+  top: 100px  
+  width: 300px
+  height: 100px
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  font-size: 30px
+  &__title
+   margin-bottom: 10px
+  &__number  
+   width: 300px
+   height: 40px
+   display: flex
+   justify-content: center
+   align-items: center
+   border: 2px solid black
+   border-radius: 10px 
+ &-reset 
+  position: absolute
+  right: calc( 50% - 670px )
+  top: 565px  
+  width: 200px
+  height: 40px
+  display: flex
+  justify-content: center
+  align-items: center
+  font-size: 30px
+  border: 2px solid black
+  border-radius: 10px 
+  cursor: pointer
+  transition: .2s
+  transform: translateY(-5px) 
+  box-shadow: 2px 5px 0 grey
+  cursor: pointer  
+  &:active
+   transform: translateY(-2px)  
+   box-shadow: 0 0 0 grey
+
+@media (max-width: 1460px)
+ .main
+  &-score
+   top: 860px
+   right: calc( 50% - 150px )     
+  &-reset   
+   top: 800px 
+   right: calc( 50% - 100px )   
+   
