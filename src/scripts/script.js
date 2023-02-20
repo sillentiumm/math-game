@@ -4,6 +4,8 @@ const input = document.getElementById('mainInput')
 const btn = document.getElementById('mainBtn')
 const scoreDiv=document.getElementById('score')
 const resetDiv=document.getElementById('reset')
+const finishDiv=document.getElementById('finish')
+const finishScoreDiv=document.getElementById('finishScore')
 
 const elements = [
     [{ id:-1, value: 0, status: 0 }, { id: -1, value: 0, status: 0 }, { id: -1, value: 0, status: 0 }, { id: -1, value: 0, status: 0 }, { id: -1, value: 0, status: 0 }, { id: -1, value: 0, status: 0 } ],
@@ -20,7 +22,7 @@ const arrSymbols = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '+', '*', 
 const ballsArray = []
 let quation = ''
 canvas.width = 800;
-canvas.height = 600;  //
+canvas.height = 600;  
 let elementId = 0
 let positionX = 7
 let intervalTime = 2500
@@ -90,7 +92,7 @@ function elementColor(e) {
 
 function start(withoutTimeout) {
     let elementsInLine = 0
-    let elementX = randomX()
+    let elementX = randomPositionX()
     let elementSymbol = randomSymbol()
     let clr = ''
     elementColor(elementSymbol) ? clr = '#fff' : clr = '#FFBA00'
@@ -102,7 +104,8 @@ function start(withoutTimeout) {
     })
 
     if (elementsInLine === 5) {
-        console.log('fin') /////////////////  fin
+        finishDiv.style.zIndex = '1'
+        finishScoreDiv.innerHTML = score
         return false
     }
     else {
@@ -114,7 +117,7 @@ function start(withoutTimeout) {
         elementId++
     }
     if(!withoutTimeout) {
-        startTimeout = setTimeout(() => start(), intervalTime) /////////////
+        startTimeout = setTimeout(() => start(), intervalTime)
     }
 }
 
@@ -129,7 +132,7 @@ function begin() {
     }
 }
 
-function randomX() {
+function randomPositionX() {
     positionX > 6 ? positionX = 0 : positionX++
     return positionX
 }
@@ -176,22 +179,12 @@ function selectElement(element, x, y) {
 function filter(x) {
     const all2 = elements[x].filter(e => e.status !== 0)
 
-    while (all2.length < 6) {  //
+    while (all2.length < 6) {  
         all2.unshift({ id: -1, value: 0, status: 0 })
     }
 
     for (k = 0; k < elements[x].length; k++) {
         elements[x][k] = all2[k]
-    }
-}
-
-const handle = (event) => {
-    let x = parseInt(event.offsetX / 100)
-    let y = parseInt(event.offsetY / 100)
-    selectElement(ballsArray.find(findElement), x, y)
-
-    function findElement(element) {
-        return element.id == elements[x][y].id
     }
 }
 
@@ -287,14 +280,22 @@ function reset() {
     score = 0
     input.innerHTML = ''
     scoreDiv.innerHTML = 0
-
+    finishDiv.style.zIndex = '-1'
     begin()
+}
+
+const handle = (event) => {
+    let x = parseInt(event.offsetX / 100)
+    let y = parseInt(event.offsetY / 100)
+    selectElement(ballsArray.find(findElement), x, y)
+
+    function findElement(element) {
+        return element.id == elements[x][y].id
+    }
 }
 
 animate()
 
 canvas.addEventListener('click', handle)
-
 btn.addEventListener('click', result)
-
 resetDiv.addEventListener('click', reset)
